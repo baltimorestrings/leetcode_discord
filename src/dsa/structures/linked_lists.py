@@ -10,6 +10,8 @@ class ListNode:
     next: Optional[DataType] = None
 
     def __eq__(self, other):
+        if other is None:
+            return False
         return isinstance(self.val, type(other.val)) and self.val == other.val
 
 
@@ -23,9 +25,9 @@ def tree_from_iterable(i: Iterable) -> ListNode:
 
 def recurse_traverse(node: Optional[ListNode]):
     if node is None:
-        return node
+        return
     recurse_traverse(node.next)
-    print(node.val, end="")
+    print(node.val, end=" ")
 
 def recurse_traverse_reverse(node: Optional[ListNode]):
     """ O(N), O(N)
@@ -37,10 +39,41 @@ def recurse_traverse_reverse(node: Optional[ListNode]):
     node.next = None
     return thing
 
+def stack_traverse(node: Optional[ListNode]) -> None:
+    """ O(N), O(N)
 
-if __name__ == "__main__":
-    s: ListNode = tree_from_iterable(range(10))
-    print(recurse_traverse_reverse(s))
+    really it's O(2N), but remember it's about scaling, so O(2N) reduces to O(N) as constants fall away next to variables
+    """
+    stack: list[ListNode] = []
+    head = node_iter = node
+    while node_iter is not None:
+        stack.append(node_iter)
+        node_iter = node_iter.next
+    for i in reversed(range(len(stack))):
+        print(stack[i].val, end=" ")
+        del stack[i]
 
-    s = tree_from_iterable("hello, stuff")
-    recurse_traverse(s)
+def stack_traverse_reverse(node: Optional[ListNode]):
+    """ O(N) O(N)
+
+    Uses one traversal, but easily could be two, back and forth.
+    one to load up the stack, the other to set all the nexts correctly
+    """
+    if node == None or node.next == None:
+        return node
+
+    stack: list[ListNode] = []
+    node_iter = node
+
+    while node_iter is not None:
+        stack.append(node_iter)
+        node_iter = node_iter.next
+        if len(stack) > 1:
+            stack[-1].next = stack[-2]
+        else:
+            stack[0].next = None
+    return stack[-1]
+
+
+head = ListNode(1, ListNode(2, ListNode(3, ListNode(4))))
+print(stack_traverse_reverse(head))

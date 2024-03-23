@@ -1,3 +1,5 @@
+package dsa.sorting_algs;
+
 import java.util.Arrays;
 
 public class InsertionSort {

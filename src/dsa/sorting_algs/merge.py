@@ -1,7 +1,4 @@
-from typing import *
-
-
-def _merge_sort(left: List[int], right: List[int]) -> List[int]:
+def _merge_sort(left: list[int], right: list[int]) -> list[int]:
     result = []
     i, j = 0, 0
     while i < len(left) and j < len(right):
@@ -16,7 +13,7 @@ def _merge_sort(left: List[int], right: List[int]) -> List[int]:
     return result
 
 
-def merge(l: List[int]) -> List[int]:
+def merge(l: list[int]) -> list[int]:
     if len(l) < 2:
         return l
     middle = len(l) // 2

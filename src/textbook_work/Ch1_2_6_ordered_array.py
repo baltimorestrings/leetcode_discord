@@ -6,7 +6,7 @@ class OrderedArray(Generic[T]):
     Simple ordered array. Has an inner array it grows, mimicing what the actual array clases do.
 
     Insertion/Deletion are O(N) thanks to reshuffling needed
-    finding is O(log N), random access is O(1) cuz duh
+    finding is O(log N), random access is O(1)
     """
     _default_initial_size: int = 10
 

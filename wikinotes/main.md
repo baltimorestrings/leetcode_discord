@@ -1,52 +1,49 @@
-### Links
+### Main Notes
 
-[textbook (personal notes)](dsa_textbook_notes/README.md)
+[Unit 1](unit1_arrays.md) - Arrays
 
-[14 patterns to "ace interviews" link](https://leetcode.com/discuss/study-guide/4039411/14-Patterns-to-Ace-Any-Coding-Interview-Question)
+[Textbook (personal notes)](dsa_textbook_notes/README.md) - extra stuff.
 
 -----
-### Grind 75 week 1
 
-**two sum**
+### Problems
+
+ This page for now is problems that don't fit into units, but once we begin with picked problems,
+ this will all move to "extra", and this section will 
+be the master problem list, with short, one line comment, short, one line O(N).
+
+Aim is to keep anything labeled "core" KISS, with only the problems and relevant DS/Alg to those problems listed,
+
+**Two Sum**
 
 - Use a [hash](../src/problems/two_sum.py) to store complements.
 
 - O(N), O(N)
 
-**valid parenthesis**
+**Valid Parenthesis**
 
 - [stack](../src/problems/valid_parenthesis.py)
 - O(N), O(N)
 
-**merge two sorted lists, linked list**
+**Merge Two Sorted Lists, Linked List**
 - not sure how to put this in a sentence, but it's combining a ll, just do it.
 - helpful to have a dummy node pointing at head
 - O(N), O(1)
-    
-**buy/sell stock**
-- [sliding windowish](../src/problems/buy_sell_stock.py)
-- left side moves by min (buy price), "right side" is just calculating the max profit
-- O(N), O(1)
 
-**is word palindrome**
+**Is Word Palindrome**
 - `str.isalnum()` in python, `Character.isLetterOrDigit` in java
 - can "cheat" with `return str == str[::-1]`, or `StringBuilder::reverse` in java
 - O(N), O(1)
 
-**is word anagram of another word**
+**Is Word Anagram Of Another Word**
 - frequency counter with hash is O(N), O(1)
 - sort both strings is O(NlogN), O(1)
 
 **Invert Binary Tree?**
-- need to review recursive and iterative traversal
+- need to review recursive and itera../src/dsa/sorting_algs/merge.pytive traversal
 
-**binary search in sorted array**
-- simple binary search, divide and conquer 
-- sliding window left and right, calc mid each time, then turn left or right to mid +/- 1
 
-##### Random problems worked
-
-**reverse singly linked list**
+**Reverse Singly Linked List**
 
 can be done [recursively](../src/dsa/structures/linked_lists.py#L30) for O(N), O(N):
 
@@ -55,75 +52,30 @@ can be done [recursively](../src/dsa/structures/linked_lists.py#L30) for O(N), O
 
 can be done iteratively for O(N), O(1):
 
-- TODO
-
-**water in containers**
-- sliding window. Increase the side that's lower.
-- O(N), O(1)
-
-**add two integers, no +/-**
+**Add Two Integers, No +/-**
 - `(a ^ b) + ((a & b) << 1)`
 -   `xor`        `and`
 - binary add - `and` gives the carry, `xor` gives the column digit
 - O(N), O(1)
 
-
-**clinbing stairs (E)**
+**Clinbing stairs (E)**
 - it's just fibonacci (ONO1)
-
-**contains duplicate**
-- test length against a set creation, or just use a hash
-- O(N), O(N)
-
-**three sum?**
-
-##### sorting algorithms
-
-pick 2. For now it's merge and insertion. 
-
-**insertion**
-- O(N^2), O(1)
-- this is the simple [swapper](../src/dsa/sorting_algs/insertion.py), left to right loop; swap i,j right to left until l[i]\>l[j]
-- big numbers move left, swaps.
- 
-**merge O(NlogN), O(N)**
-- [Recursion](../src/dsa/sorting_algs/merge.py).
-- Break loop in halves until recursed singles, assemble. 
-- Uses two functions:
- 
-    ```
-    mergeTwoSorgedLists(l1, l2) -> list
-        """ Expects l1 and l2 to be sorted lists, combines them into one list """
-  
-    mergeSort(l1):
-      """ Recurses and breaks down an array into arrays of length 1, then assembles """
-      if l1.length is 1:
-           return l1
-      otherwise:
-          left is mergeSort(first half of l1), right is mergeSort(second half of l2)
-          return mergeTwoSortedLists(left, right)
-    ```
-                    
-**bubble O(N^2), O(1)?**
-- isn't this just a bad reverse insertion sort? 
- 
-**timsort (ONlogN), O(N)?**
-- It's like a merge/insertion sort in one. Python uses it. Super fast for very specific cases (nearly sorted)
-- something something cache coherence
-  
-**quicksort (ONlogN), O(logN)?**
-- java uses a modified one of this (dual pivot?)
-- pivots? 
 
 ----
 
-### data structures
+## search algorithms
 
-**ordered array**
-- insertion/deletion is O(N) thanks to reshuffling
-- search is O(log N) because [binary search](../src/textbook_work/Ch1_2_6_ordered_array.py#L22)
+moved to indiv. units
 
-### graph algs
+## sorting algorithms
+
+moved to indiv. units.
+
+## data structures
+
+moved to indiv. units
+
+## graph algs
 
 probably not doing all these. At least will do Cycles, FCC (curacaos? think that's the drink), and review traversal
 
@@ -136,7 +88,7 @@ probably not doing all these. At least will do Cycles, FCC (curacaos? think that
 - Cycles
 - Topological Sorting
 
-### TODO
+## TODO
 
 Now that this is going to be shared:
 
@@ -148,4 +100,4 @@ Now that this is going to be shared:
 
 [X] - convert to a style that renders better (less bullet points) 
 
-[ ] - break this down into separate pages instead of one giant one
+[X] - break this down into separate pages instead of one giant one
