@@ -1,4 +1,4 @@
-def maxSubArray(self, nums: list[int]) -> int:
+def maxSubArray(nums: list[int]) -> int:
     """
     Kadane's alg makes a lot more sense if you watch it work - there are good videos online.
 
@@ -6,10 +6,11 @@ def maxSubArray(self, nums: list[int]) -> int:
     as we make the total. That means we're basically sliding a window up the left, and dumping everything to the left of
     it any time it goes negative.
     """
-    max_seen: int = nums[0]
-    running_total: int = nums[0]
+    max_seen = float('-inf')
+    max_ending_here = float('-inf')
 
-    for i in range(1, len(nums)):
-        running_total = max(0, nums[i] + running_total) # A
-        max_seen = max(max_seen, running_total) # B
+    for num in nums:
+        max_ending_here += num
+        max_seen = max(max_seen, max_ending_here)
+        max_ending_here = max(max_ending_here, 0)
     return max_seen

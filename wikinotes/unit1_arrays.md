@@ -271,7 +271,7 @@ Follow up: If you have figured out the O(n) solution, try coding another solutio
 
         
 ```python3
-def maxSubArray(self, nums: list[int]) -> int:
+def maxSubArray(nums: list[int]) -> int:
     """
     Kadane's alg makes a lot more sense if you watch it work - there are good videos online.
 
@@ -279,25 +279,17 @@ def maxSubArray(self, nums: list[int]) -> int:
     as we make the total. That means we're basically sliding a window up the left, and dumping everything to the left of
     it any time it goes negative.
     """
-    max_seen: int = nums[0]
-    running_total: int = nums[0]
+    max_seen: int = float('-inf')
+    running_total: int = 0
 
-    for i in range(1, len(nums)):
-        running_total = max(0, nums[i] + running_total) # A
-        max_seen = max(max_seen, running_total) # B
+    for i in range(0, len(nums)):
+        running_total += nums[i]
+        max_seen = max(max_seen, running_total)
+        running_total = max(0, running_total)
+    
     return max_seen
 ```
 
-This is the same concept, but I find it a bit easier to think through:
-
-```python3
-def maxSubArray(nums: list[int]) -> int:
-running_total = float('-inf')
-max_seen = float('-inf')
-for i in range(0, len(nums)):
-running_total = max(running_total + nums[i], nums[i])
-max_seen = max(running_total, max_seen)
-```
 </details>
 
 
@@ -376,12 +368,13 @@ This one is for the maximum subarray problem, however it can apply to the stock 
 Example and full explanation [here](../src/problems/largest_subarray_add.py)
 
 ```
-running_total, max_seen = 0
+max_so_far = -infinite
+running_total = 0
 
 for price in list_of_prices:
     add price to running_total
+    if running_total is bigger than max_so_far, update max_so_far to it
     if running_total is negative, reset it to 0
-    if running_total is bigger than max_seen, set max_seen to it
     
 ```
 
