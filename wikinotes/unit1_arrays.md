@@ -8,7 +8,7 @@ Big O format note: O(N), O(N) is time and space complexity, in that order.
 
 ### Array Problems
 
-**Concatenate Two Arrays**
+**1929. Concatenate Two Arrays**
 
 Don't really know what to write here. Join the arrays!
 
@@ -56,7 +56,7 @@ def getConcat(nums: list[int]) -> list[int]:
 
 </details>
 
-**Remove Element**
+**27. Remove Element**
 
 <details><summary>Problem</summary>
 Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
@@ -131,7 +131,7 @@ def removeElement(nums: list[int], val: int) -> int:
 - note that it wants the array modified in place, so this has to be two pointers.
 - just have one pointer as "print cursor" and one pointer as "scanner", swap as needed.
 
-**Remove Duplicates from Sorted array**
+**26. Remove Duplicates from Sorted array**
 
 <details><summary>Problem</summary>
 
@@ -201,7 +201,7 @@ def removeDuplicates(nums: List[int]) -> int:
 - two pointers, scanner, cursor
 - print at cursor as scanner sees values that aren't cursor - 1
  
-**Two Sum**
+**1. Two Sum**
 
 
 <details>
@@ -261,7 +261,7 @@ def twoSum(nums: list[int], target: int) -> list[int]:
 
 - O(N), O(N)
 
-**Buy/Sell Stock**
+**121. Buy/Sell Stock**
 
 <details>
 <summary>Problem</summary>
@@ -351,7 +351,7 @@ def maxProfit2(prices: list[int]) -> int:
 - *Extra*: There is an approach using Kadane's algorithm [here](../src/problems/buy_sell_stock.py#L15). 
   - the running total is of candles (stock changes), so the running total goes running + prices[i] - prices[i - 1]
 
-**Contains Duplicate**
+**217. Contains Duplicate**
 - test length against a set creation, or just use a hash
 - O(N), O(N)
 
@@ -420,7 +420,7 @@ def maxArea(heights: list[int]) -> int:
 - As you keep sliding the windows in towards each other, just keep tracking max encountered area.  
 - O(N), O(1)
 
-**Maximum Subarray**
+**53. Maximum Subarray**
 
 <details>
 <summary>Problem</summary>
@@ -490,15 +490,16 @@ def maxSubArray(nums: list[int]) -> int:
 - O(N), O(1)
 - example [here](../src/problems/largest_subarray_add.py)
 
-**Product of Array Except Self**
+**238. Product of Array Except Self**
 
-**Sort Colors**
+
+**75.Sort Colors**
 
 The in place requirement means it isn't a sort.
 
 need to do a sliding window swappy thing. Notes on it tomorrow and some practice.
 
-**Binary Search in Sorted Array**
+**704. Binary Search in Sorted Array**
 
 This one is simply know binary search. Will update this with a bit more example.
 
